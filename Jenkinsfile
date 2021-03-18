@@ -1,19 +1,25 @@
-pipeline {
+pipeline { 
     agent any 
     stages {
-        stage('Build') { 
-            steps {
-                // 
+        stage('Checkout') { 
+            steps { 
+            
+			checkout scm
+
             }
         }
-        stage('Test') { 
+        stage('Build'){
             steps {
-                // 
+      
+	        sh "docker-compose build"   
+     		sh "docker-compose up -d "
+		
+	  
             }
         }
-        stage('Deploy') { 
+        stage('Test') {
             steps {
-                // 
+			sh "docker-compose -p tests run -p 3000 --rm web npm run watch-tests"
             }
         }
     }
