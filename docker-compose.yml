@@ -1,13 +1,19 @@
-version: '3.8'
+version: '2'
 services:
   web:
-    build:
-      context: ./
-      target: dev
+    build: .
+    command: npm run dev
     volumes:
-      - .:/src
-    command: npm start
+      - .:/usr/app/
+      - /usr/app/node_modules
     ports:
       - "3000:3000"
+    depends_on:
+      - postgres
     environment:
-      NODE_ENV: dev
+      DATABASE_URL: postgres://todoapp@postgres/todos
+  postgres:
+    image: postgres:9.6.2-alpine
+    environment:
+      POSTGRES_USER: todoapp
+      POSTGRES_DB: todos
