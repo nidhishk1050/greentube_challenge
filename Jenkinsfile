@@ -4,7 +4,7 @@ pipeline {
         stage('Checkout') { 
             steps { 
             
-			checkout scm
+		checkout scm
 
             }
         }
@@ -18,7 +18,7 @@ pipeline {
 	  
             }
         }
-        stage('Test') {
+        stage('Unit Test') {
             steps {
 			sh "docker-compose -p tests run -p 3000 --rm web npm run watch-tests"
             }
