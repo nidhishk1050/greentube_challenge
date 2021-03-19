@@ -14,7 +14,7 @@ pipeline {
       
      		sh "sudo docker-compose up -d "
 		sh "sudo docker images"
-		sh "sudo docker push "
+		sh "sudo docker push nidhishd/greentube_feature_nd_working_web:latest"
 		
 	  
             }
