@@ -1,4 +1,5 @@
 pipeline { 
+	
     agent any 
     stages {
         stage('Checkout') { 
@@ -13,7 +14,7 @@ pipeline {
       
      		sh "sudo docker-compose up -d "
 		sh "sudo docker images"
-		sh "sudo docker ps -a"
+		sh "sudo docker push "
 		
 	  
             }
