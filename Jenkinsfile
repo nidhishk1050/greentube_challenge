@@ -16,7 +16,7 @@ pipeline {
 		sh "sudo docker images"
 		sh "sudo docker tag greentube_feature_nd_working_web:latest nidhishd/greentube_feature_nd_working_web:latest"
 		sh "sudo docker images"
-	        sh "- docker login -u DOCKER_USERNAME -p DOCKER_PASSWORD"
+	        sh "- docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
 		sh "sudo docker push nidhishd/greentube_feature_nd_working_web:latest"
 		
 	  
