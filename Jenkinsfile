@@ -25,7 +25,7 @@ pipeline {
 	stage('Unit Test') {
             steps {
 			sh "docker-compose -p tests run -p 3000 --rm web npm run watch-tests"
-		        junit 'test-results.xml'
+		        sh "jest-watch-suspend"
             }
         }
 	 
