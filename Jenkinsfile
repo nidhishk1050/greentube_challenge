@@ -18,6 +18,8 @@ pipeline {
 		sh "sudo docker images"
 	        sh "sudo docker login"
 		sh "sudo docker push nidhishd/greentube_feature_nd_working_web:latest"
+		sh "docker stop $(docker ps -q)"
+		sh "docker rm $(docker ps -a -q)"
 		
 	  
             }
