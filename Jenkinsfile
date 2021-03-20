@@ -30,11 +30,7 @@ pipeline {
 		        sh "jest-watch-suspend"
             }
 		
-	    post { 
-              always { 
-                junit 'test-results.xml'   
-        }
-    }
+
         }
 	 
 	   
